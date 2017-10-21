@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="dreamvacation_style.css">
+</head>
+<body>
+
+<ul>
+	<li><a class="active" href="dreamvacation.html">Trip Overview & Introduction</a></li>
+	<li><a href="hawaii.html">Hawaii</a></li>
+	<li><a href="london.html">London</a></li>
+	<li><a href="rome.html">Rome</a></li>
+	<li><a href="seoul.html">Seoul</a></li>
+	<li><a href="tokyo.html">Tokyo</a></li>
+</ul>
+
+<div class="main">
+
+<h1>My Dream Vacation</h1>
+
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+	var mapCenter = new google.maps.LatLng(21.3068396,-157.8610764);
+	var mapProp= {
+		center:mapCenter,zoom:6
+		};
+	var map= new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	//Hawaii
+	var hawaii = new google.maps.LatLng(21.3068396,-157.8610764);
+	var hawaiiMarker = new google.maps.Marker({
+		position: hawaii,
+		icon: "pineapple.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	hawaiiMarker.setMap(map);
+	var hawaiiInfowindow = new google.maps.InfoWindow({
+		content: "Hi People! This is the first destination on my dream vacation... Hawaii! Follow the light purple line to see my next destination!"
+		});
+	google.maps.event.addListener(hawaiiMarker,'click',function() {
+	hawaiiInfowindow.open(map,hawaiiMarker);
+	tokyoInfowindow.close();
+	seoulInfowindow.close();
+	romeInfowindow.close();
+	londonInfowindow.close();
+	});
+	//London
+	var london = new google.maps.LatLng(51.5065344,-0.1295761);
+	var londonMarker = new google.maps.Marker({
+		position: london,
+		icon: "telephonetea.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	londonMarker.setMap(map);
+	var londonInfowindow = new google.maps.InfoWindow({
+		content: "Now I'm at London yay! Continue following the purple path!"
+		});
+	google.maps.event.addListener(londonMarker,'click',function() {
+	londonInfowindow.open(map,londonMarker);
+	hawaiiInfowindow.close();
+	romeInfowindow.close();
+	seoulInfowindow.close();
+	tokyoInfowindow.close();
+	});
+	//Rome
+	var rome = new google.maps.LatLng(41.8686613,12.4306392);
+	var romeMarker = new google.maps.Marker({
+		position: rome,
+		icon: "buildings.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	romeMarker.setMap(map);
+	var romeInfowindow = new google.maps.InfoWindow({
+		content: "The Metropolitan City of Rome in Italy!!! I really want to visit this place. Anyways, the next place is..."
+		});
+	google.maps.event.addListener(romeMarker,'click',function() {
+	romeInfowindow.open(map,romeMarker);
+	londonInfowindow.close();
+	hawaiiInfowindow.close();
+	seoulInfowindow.close();
+	tokyoInfowindow.close();
+	});
+	//Seoul
+	var seoul = new google.maps.LatLng(37.5455092,126.9569572);
+	var seoulMarker = new google.maps.Marker({
+		position: seoul,
+		icon: "bibimbap.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	seoulMarker.setMap(map);
+	var seoulInfowindow = new google.maps.InfoWindow({
+		content: "It's Seoul! I've see this place on tv a lot haha. I also enjoy eating korean food like bibimbap! Now feel free to continue on my trip to the final destination."
+		});
+	google.maps.event.addListener(seoulMarker,'click',function() {
+	seoulInfowindow.open(map,seoulMarker);
+	romeInfowindow.close();
+	hawaiiInfowindow.close();
+	londonInfowindow.close();
+	tokyoInfowindow.close();
+	});
+	//Tokyo
+	var tokyo = new google.maps.LatLng(35.6955195,139.6204596);
+	var tokyoMarker = new google.maps.Marker({
+		position:tokyo,
+		icon: "cherryblossom.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	tokyoMarker.setMap(map);
+	var tokyoInfowindow = new google.maps.InfoWindow({
+		content: "Finally, I'm going to end my dream vacation here in Tokyo! yayy"
+		});
+	google.maps.event.addListener(tokyoMarker,'click',function() {
+	tokyoInfowindow.open(map,tokyoMarker);
+	seoulInfowindow.close();
+	hawaiiInfowindow.close();
+	romeInfowindow.close();
+	londonInfowindow.close();
+	});
+
+	var myTrip = [hawaii,london,rome,seoul,tokyo]
+	var flightPath = new google.maps.Polyline({
+		path:myTrip,
+		strokeColor:"#8787dd",
+		strokeOpacity: 0.8,
+		strokeWeight: 2
+	});
+	flightPath.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8HJsG51eciF4k_iSZ5saAEwGpyE-TnoI&callback=myMap">
+</script>
+
+<p>
+Welcome to my Dream Vacation website! Above is a map that gives a basic introduction of the places I would like to go, and my trip route. Click on the pineapple icon on the map above and follow the directions!
+You may also learn more in depth about each of the places I would like to go to by visiting the different tabs on the navigation bar to the left. Have Fun!
+</p>
+
+<img src="home.jpg" width="100%">
+
+</body>
+
+</div>
+
+</html>

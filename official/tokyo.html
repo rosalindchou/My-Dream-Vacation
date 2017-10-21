@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="dreamvacation_style.css">
+</head>
+<body>
+
+<ul>
+	<li><a href="dreamvacation.html">Trip Overview & Introduction</a></li>
+	<li><a href="hawaii.html">Hawaii</a></li>
+	<li><a href="london.html">London</a></li>
+	<li><a href="rome.html">Rome</a></li>
+	<li><a href="seoul.html">Seoul</a></li>
+	<li><a class="active" href="tokyo.html">Tokyo</a></li>
+</ul>
+
+<div class="main">
+
+<h1>Tokyo</h1>
+<img src="tokyo.JPG" width="100%">
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+	var mapCenter = new google.maps.LatLng(35.6880435,139.851133);
+	var mapProp= {
+		center:mapCenter,
+		zoom:11,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+		};
+	var map= new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	//Tokyo Disneyland
+	var land = new google.maps.LatLng(35.6328911,139.8803017);
+	var landMarker = new google.maps.Marker({
+		position: land,
+		icon: "mickey.gif",
+		animation:google.maps.Animation.BOUNCE
+		});
+	landMarker.setMap(map);
+	var landInfowindow = new google.maps.InfoWindow({
+		content: "Tokyo Disneyland- I've only been to Disneyland twice, and I wouldn't hesitate to go another time, especially if its in another country!"
+		});
+	google.maps.event.addListener(landMarker,'click',function() {
+	landInfowindow.open(map,landMarker);
+	treeInfowindow.close();
+	seaInfowindow.close();
+	});
+	//Tokyo Skytree
+	var tree = new google.maps.LatLng(35.7099288,139.8105553);
+	var treeMarker = new google.maps.Marker({
+		position: tree,
+		icon: "skytree.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	treeMarker.setMap(map);
+	var treeInfowindow = new google.maps.InfoWindow({
+		content: "Tokyo Skytree- It's the tallest structure in the world! I must come here to visit the observatories high up in the sky and look down once I'm at the top or something."
+		});
+	google.maps.event.addListener(treeMarker,'click',function() {
+	treeInfowindow.open(map,treeMarker);
+	landInfowindow.close();
+	seaInfowindow.close();
+	});
+	//Tokyo Disneysea
+	var sea = new google.maps.LatLng(35.6266955,139.8849877);
+	var seaMarker = new google.maps.Marker({
+		position: sea,
+		icon: "sea.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	seaMarker.setMap(map);
+	var seaInfowindow = new google.maps.InfoWindow({
+		content: "Tokyo Disneysea- I've never been to a Disney SEA before. It seems so cool! I'm interested in seeing how different the experience is from visiting the original Disneyland."
+		});
+	google.maps.event.addListener(seaMarker,'click',function() {
+	seaInfowindow.open(map,seaMarker);
+	landInfowindow.close();
+	treeInfowindow.close();
+	});
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap">
+</script>
+
+<p>Finally, at my fifth and last destination: Tokyo, there are three specific places that I want to make sure to visit.
+<br>1. Tokyo Skytree- This tower is 634 meters high in the air and is the tallest tower in the world! It is used for TV and radio broadcasting and communications and also has a popular observation deck that visitors like me are excited to visit!
+<br><img src="tokyoskytree.jpeg" width="50%">
+<br>2. Tokyo Disneyland- The Disneyland in Tokyo has different attractions from the ones in California. There is Pirates of the Caribbean ride, a Jungle Cruise ride, an Enchanted Tiki Room, the Big Thunder Mountain, and more! I think I'd have lots of fun here!
+<br><img src="tokyodisneyland.jpeg" width="50%">
+<br>3. Tokyo Disneysea- Guess what! After visiting Disneyland, I'm coming to the Disneysea too! I don't need to explain why, its obviously because I expect any Disney park to be fascinating to visit! The park's centerpiece and most prominent feature is the giant volcano, Mount Prometheus, wherein the "Mysterious Island" is located. Below is a cool picture! I want to visit this place so bad...
+<br><img src="tokyodisneysea.jpeg" width="50%">
+<br>
+<br>
+Well, this concludes my dream vacation! Thanks for following through the entire website and I hope you had fun learning about these destinations I wish to visit.
+</p>
+
+</body>
+
+</div>
+
+</html>

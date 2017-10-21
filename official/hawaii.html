@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="dreamvacation_style.css">
+</head>
+<body>
+
+<ul>
+	<li><a href="dreamvacation.html">Trip Overview & Introduction</a></li>
+	<li><a class="active" href="hawaii.html">Hawaii</a></li>
+	<li><a href="london.html">London</a></li>
+	<li><a href="rome.html">Rome</a></li>
+	<li><a href="seoul.html">Seoul</a></li>
+	<li><a href="tokyo.html">Tokyo</a></li>
+</ul>
+
+<div class="main">
+
+<h1>Hawaii</h1>
+<img src="hawaii.png" width="100%">
+<div id="googleMap" style="width:100%;height:400px;"></div>
+<script>
+function myMap() {
+	var mapCenter = new google.maps.LatLng(21.2796989,-157.8344489);
+	var mapProp= {
+		center:mapCenter,
+		zoom:14,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+		};
+	var map= new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	//Ala Moana Center
+	var center = new google.maps.LatLng(21.2911271,-157.8436307);
+	var centerMarker = new google.maps.Marker({
+		position: center,
+		icon: "center.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	centerMarker.setMap(map);
+	var centerInfowindow = new google.maps.InfoWindow({
+		content: "Ala Moana Center- I shall come to this amazing huge shopping mall and browse around!"
+		});
+	google.maps.event.addListener(centerMarker,'click',function() {
+	centerInfowindow.open(map,centerMarker);
+	zooInfowindow.close();
+	aquariumInfowindow.close();
+	});
+	//Honolulu Zoo
+	var zoo = new google.maps.LatLng(21.2711041,-157.8216123);
+	var zooMarker = new google.maps.Marker({
+		position: zoo,
+		icon: "zoo.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	zooMarker.setMap(map);
+	var zooInfowindow = new google.maps.InfoWindow({
+		content: "Honolulu Zoo- I want to visit new animals here that I've never seen in California."
+		});
+	google.maps.event.addListener(zooMarker,'click',function() {
+	zooInfowindow.open(map,zooMarker);
+	centerInfowindow.close();
+	aquariumInfowindow.close();
+	});
+	//Waikiki Aquarium
+	var aquarium = new google.maps.LatLng(21.2658415,-157.8218645);
+	var aquariumMarker = new google.maps.Marker({
+		position: aquarium,
+		icon: "aquarium.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	aquariumMarker.setMap(map);
+	var aquariumInfowindow = new google.maps.InfoWindow({
+		content: "Waikiki Aquarium- I'm coming here to visit cool marine animals!"
+		});
+	google.maps.event.addListener(aquariumMarker,'click',function() {
+	aquariumInfowindow.open(map,aquariumMarker);
+	centerInfowindow.close();
+	zooInfowindow.close();
+	});
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8HJsG51eciF4k_iSZ5saAEwGpyE-TnoI&callback=myMap">
+</script>
+
+<p>At my first destination: Hawaii, there are three specific places that I want to make sure to visit.
+<br>1. Ala Moana Center- This place is known as the largest shopping mall in Hawaii and the seventh largest shopping mall in the U.S., as well as the largest open-air shopping center in the world. It is a beautiful architecture located adjacent to the Ala Moana Beach Park. Although I'm not that into shopping, I would just love to visit the cool structures here and buy some souvenirs while I'm at it. And eat at the restaurants there too!
+<br><img src="alamoanacenter.jpg" width="50%">
+<br>2. Honolulu Zoo- This zoo featuring over 1,230 animals is built on part of the Queen Kapi'olani Park. I want to come here because they have all sorts of weird animals I've never seen before, such as the River Terrapin, the Mandarin Duck, the Koloa Maoli, the Manu-O-Ku, the Matamata Turtle, and many more. These animals are truly fascinating in the pictures I've seen, and it would be so cool to see them in real life.
+<br><img src="honoluluzoo.jpeg" width="50%">
+<br>3. Waikiki Aquarium- This is the 2nd oldest public aquarium in the United States and it's built next to a living coral reef on the Waikiki shoreline! It is home to more than 490 species of marine plants and animals. I've never really visited any aquariums before in California, so I shall visit this one on the island of Hawaii!
+<br><img src="waikikiaquarium.jpg" width="50%">
+</p>
+
+</body>
+
+</div>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="dreamvacation_style.css">
+</head>
+<body>
+
+<ul>
+	<li><a href="dreamvacation.html">Trip Overview & Introduction</a></li>
+	<li><a href="hawaii.html">Hawaii</a></li>
+	<li><a href="london.html">London</a></li>
+	<li><a href="rome.html">Rome</a></li>
+	<li><a class="active" href="seoul.html">Seoul</a></li>
+	<li><a href="tokyo.html">Tokyo</a></li>
+</ul>
+
+<div class="main">
+
+<h1>Seoul</h1>
+<img src="seoul.jpg" width="100%">
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+	var mapCenter = new google.maps.LatLng(37.5641224,126.9798166);
+	var mapProp= {
+		center:mapCenter,
+		zoom:13,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+		};
+	var map= new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	//Myeong-dong
+	var dong = new google.maps.LatLng(37.5658662,126.9798577);
+	var dongMarker = new google.maps.Marker({
+		position: dong,
+		icon: "dong.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	dongMarker.setMap(map);
+	var dongInfowindow = new google.maps.InfoWindow({
+		content: "Myeong-dong- I really want to come visit Seoul's main shopping district here, to eat food! And buy other stuff too!"
+		});
+	google.maps.event.addListener(dongMarker,'click',function() {
+	dongInfowindow.open(map,dongMarker);
+	palaceInfowindow.close();
+	towerInfowindow.close();
+	});
+	//Gyeongbokgung Palace
+	var palace = new google.maps.LatLng(37.5796692,126.9769184);
+	var palaceMarker = new google.maps.Marker({
+		position: palace,
+		icon: "palace.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	palaceMarker.setMap(map);
+	var palaceInfowindow = new google.maps.InfoWindow({
+		content: "Gyeongokgung Palace- This royal palace from the Joseon Dynasty seems like a nice place to visit and take some pictures."
+		});
+	google.maps.event.addListener(palaceMarker,'click',function() {
+	palaceInfowindow.open(map,palaceMarker);
+	dongInfowindow.close();
+	towerInfowindow.close();
+	});
+	//N Seoul Tower
+	var tower = new google.maps.LatLng(37.5512301,126.9880308);
+	var towerMarker = new google.maps.Marker({
+		position: tower,
+		icon: "tower.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	towerMarker.setMap(map);
+	var towerInfowindow = new google.maps.InfoWindow({
+		content: "N Seoul Tower- I've seen this place also known as the Namsan Tower on TV often and I'm excited to go up there and see what its like!!"
+		});
+	google.maps.event.addListener(towerMarker,'click',function() {
+	towerInfowindow.open(map,towerMarker);
+	dongInfowindow.close();
+	palaceInfowindow.close();
+	});
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap">
+</script>
+
+<p>At my fourth destination: Seoul, I am especially excited to tour these three places below!
+<br>1. Gyeongbokgung Palace- This palace was built during the Joseon Dynasty in 1395! That's roughly 600 years ago! Surprisingly, I don't think I've been to a real ancient Asian structure before. I've only visited buildings that tried to recreate those Asian structures, so this would be a new experience for me, to visit this palace.
+<br><img src="gyeongbokgungpalace.jpeg" width="50%">
+<br>2. Myeong-dong- This busy shopping neighborhood in Jung-gu, is a well known commercial area district with multiple outlets, stores, markets, hotels, restaurants, cinemas, historical sites,etc... I would love to go to the Myeongdong Festival and shop through the neon lights of the city at night.
+<br><img src="myong-dong.jpeg" width="50%">
+<br>3. N Seoul Tower- The Namsan tower marks the second highest point in Seoul! It's actually a fairly new building, built in 1971, and it provides TV and radio broadcasting in Seoul. Aside from that, there is a terrace, food court, garden, shop, cafe, observatory, pond, a revolving restaurant, the "Sky Restroom", and many more. Isn't that awesome? And on top of everything, it is well known for the Namsan cable car that takes visitors up to the top of the tower where they can enjoy a panoramic view of the city below!
+<br><img src="namsantower.jpeg" width="50%">
+</p>
+
+</body>
+
+</div>
+
+</html>

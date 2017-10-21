@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="dreamvacation_style.css">
+</head>
+<body>
+
+<ul>
+	<li><a href="dreamvacation.html">Trip Overview & Introduction</a></li>
+	<li><a href="hawaii.html">Hawaii</a></li>
+	<li><a href="london.html">London</a></li>
+	<li><a class="active" href="rome.html">Rome</a></li>
+	<li><a href="seoul.html">Seoul</a></li>
+	<li><a href="tokyo.html">Tokyo</a></li>
+</ul>
+
+<div class="main">
+
+<h1>Rome</h1>
+<img src="rome.jpg" width="100%">
+<div id="googleMap" style="width:100%;height:400px;"></div>
+
+<script>
+function myMap() {
+	var mapCenter = new google.maps.LatLng(41.8834046,12.4877254);
+	var mapProp= {
+		center:mapCenter,
+		zoom:13,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+		};
+	var map= new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+	//Janiculum Terrace
+	var terrazza = new google.maps.LatLng(41.8916513,12.4609526);
+	var terrazzaMarker = new google.maps.Marker({
+		position: terrazza,
+		icon: "terrazza.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	terrazzaMarker.setMap(map);
+	var terrazzaInfowindow = new google.maps.InfoWindow({
+		content: "Janiculum Terrace- I will come to this popular terrace to get an amazing view of the city of Rome below and take pictures!"
+		});
+	google.maps.event.addListener(terrazzaMarker,'click',function() {
+	terrazzaInfowindow.open(map,terrazzaMarker);
+	colosseumInfowindow.close();
+	appiaparkInfowindow.close();
+	});
+	//Colosseum
+	var colosseum = new google.maps.LatLng(41.8901745,12.4921136);
+	var colosseumMarker = new google.maps.Marker({
+		position: colosseum,
+		icon: "colosseum.gif",
+		animation:google.maps.Animation.BOUNCE
+		});
+	colosseumMarker.setMap(map);
+	var colosseumInfowindow = new google.maps.InfoWindow({
+		content: "Colosseum- This is the most famous landmark of Rome of all time, so it'd be cool if I could visit here."
+		});
+	google.maps.event.addListener(colosseumMarker,'click',function() {
+	colosseumInfowindow.open(map,colosseumMarker);
+	terrazzaInfowindow.close();
+	appiaparkInfowindow.close();
+	});
+	//Appia Antica Regional Park
+	var appiapark = new google.maps.LatLng(41.8683148,12.5023019);
+	var appiaparkMarker = new google.maps.Marker({
+		position: appiapark,
+		icon: "appiapark.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	appiaparkMarker.setMap(map);
+	var appiaparkInfowindow = new google.maps.InfoWindow({
+		content: "Appia Antica Regional Park- I think it'd be pretty cool to take a relaxing walk down this old Roman road and pass by many ancient villas..."
+		});
+	google.maps.event.addListener(appiaparkMarker,'click',function() {
+	appiaparkInfowindow.open(map,appiaparkMarker);
+	terrazzaInfowindow.close();
+	colosseumInfowindow.close();
+	});
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?callback=myMap">
+</script>
+
+<p>At my third destination: Rome, of the numerous locations I'm excited to see, here are three of them!
+<br>1. Janiculum Terrace- The picture below depicts the view you can get of the city of Rome if you were standing up on this terrace! Isn't it so fantastic? Why wouldn't anyone want to come up here, am I right? This shall be an essential location in my tour.
+<br><img src="janiculumterrace.jpeg" width="50%">
+<br>2. Colosseum- This place has the remains of the massive stone amphitheatre built around A.D. 70-72! Isn't that old? Now it's a popular tourist destination and it's an iconic symbol of Rome. I must come here in my venture into Rome's history.
+<br><img src="thecolosseum.jpeg" width="50%">
+<br>3. Appia Anitca Regional Park- This amazing park combines nature trails with historic monuments and archeological sites! While walking or biking along the old Roman road, you can see places like the Villa Capo di Bove, the Tomb of Cecilia Metella, and the Tombs of Via Latina. Now that's cool! It'd be so cool to bike along this trail! 
+<br><img src="appiaanticaregionalpark.jpeg" width="50%">
+</p>
+
+</body>
+
+</div>
+
+</html>

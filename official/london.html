@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="dreamvacation_style.css">
+</head>
+<body>
+
+<ul>
+	<li><a href="dreamvacation.html">Trip Overview & Introduction</a></li>
+	<li><a href="hawaii.html">Hawaii</a></li>
+	<li><a class="active" href="london.html">London</a></li>
+	<li><a href="rome.html">Rome</a></li>
+	<li><a href="seoul.html">Seoul</a></li>
+	<li><a href="tokyo.html">Tokyo</a></li>
+</ul>
+
+<div class="main">
+
+<h1>London</h1>
+<img src="london.jpg" width="100%">
+<div id="googleMap" style="width:100%;height:400px;"></div>
+<script>
+function myMap() {
+	var mapCenter = new google.maps.LatLng(51.5065315,-0.1076627);
+	var mapProp= {
+		center:mapCenter,
+		zoom:14,
+		mapTypeId: google.maps.MapTypeId.HYBRID
+		};
+	var map= new google.maps.Map(document.getElementById("googleMap"),mapProp);
+	
+	//Big Ben
+	var bigben = new google.maps.LatLng(51.500664,-0.1247745);
+	var bigbenMarker = new google.maps.Marker({
+		position: bigben,
+		icon: "bigben.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	bigbenMarker.setMap(map);
+	var bigbenInfowindow = new google.maps.InfoWindow({
+		content: "Big Ben- I want to come to London's famous landmark here... a cool, huge, old clock!"
+		});
+	google.maps.event.addListener(bigbenMarker,'click',function() {
+	bigbenInfowindow.open(map,bigbenMarker);
+	londonbridgeInfowindow.close();
+	globeInfowindow.close();
+	});
+	//London Bridge
+	var londonbridge = new google.maps.LatLng(51.5077923,-0.0879702);
+	var londonbridgeMarker = new google.maps.Marker({
+		position: londonbridge,
+		icon: "londonbridge.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	londonbridgeMarker.setMap(map);
+	var londonbridgeInfowindow = new google.maps.InfoWindow({
+		content: "London Bridge- I shall visit this really beautiful bridge!"
+		});
+	google.maps.event.addListener(londonbridgeMarker,'click',function() {
+	londonbridgeInfowindow.open(map,londonbridgeMarker);
+	bigbenInfowindow.close();
+	globeInfowindow.close();
+	});
+	//Shakespeare's Globe
+	var globe = new google.maps.LatLng(51.5080789,-0.097229);
+	var globeMarker = new google.maps.Marker({
+		position: globe,
+		icon: "shakespeare.png",
+		animation:google.maps.Animation.BOUNCE
+		});
+	globeMarker.setMap(map);
+	var globeInfowindow = new google.maps.InfoWindow({
+		content: "Shakespeare's Globe- This is the place we learned about in English class! Maybe I can stop by and watch a play?"
+		});
+	google.maps.event.addListener(globeMarker,'click',function() {
+	globeInfowindow.open(map,globeMarker);
+	londonbridgeInfowindow.close();
+	bigbenInfowindow.close();
+	});
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8HJsG51eciF4k_iSZ5saAEwGpyE-TnoI&callback=myMap">
+</script>
+
+<p>At my second destination: London, the three specific places that I want to make sure to visit are...
+<br>1. Big Ben- The Big Ben is actually the nickname for the Great Bell of the famous clock of the Palace of Westminster in London, but it also sometimes refers to the whole clock and the clock tower altogether. The tower is actually known as the Elizabeth Tower! Anyways, I would love to visit the Big Ben, or the Elizabeth Tower, because it's the British cultural icon and I really want to see it in real life and take pictures with it.
+<br><img src="bigbenpic.jpeg" width="50%">
+<br>2. London's Bridge- In the pictures of the London's Bridge, the structure looks so complex and beautiful, especially at night. I really want to just visit this place at night and be amazed by all the lights and reflections in the water. And take some nice photography while I'm at it!
+<br><img src="londonbridgepic.jpeg" width="50%">
+<br>3. Shakespeare's Globe- Although this place isn't the real, original "Globe Theatre" from the 1500s, this building was built with a similar structure, and its purpose is to seek further the experience and understanding of Shakespeare in performance. I'm not a fan of Shakespeare, but I think it'd be awesome to visit this modern playhouse.
+<br><img src="shakespeare'sglobe.jpeg" width="50%">
+</p>
+
+</body>
+
+</div>
+
+</html>
